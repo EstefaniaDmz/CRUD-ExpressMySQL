@@ -1,0 +1,42 @@
+<%- include ../layouts/head.ejs %>
+<h1 style="text-align: center;">Vuelo   <a class="btn btn-outline-success btn-sm" href="/vuelos/createV">Agregar</a></h1>
+    <div class="table-responsive" style="margin: 3%;">
+      <table class="table table-striped table-bordered" style="vertical-align: middle; text-align: center;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Num. Plazas</th>
+            <th>Ciudad Origen</th>
+            <th>Estado Origen</th>
+            <th>País Origen</th>
+            <th>Ciudad Destino</th>
+            <th>Estado Destino</th>
+            <th>País Destino</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% for( let i = 0; i < vuelos.length; i++ ) { %>
+          <tr>
+            <td><%= vuelos[i].idVuelo %></td>
+            <td><%= vuelos[i].fecha %></td>
+            <td><%= vuelos[i].hora %></td>
+            <td><%= vuelos[i].plazasTotales %></td>
+            <td><%= vuelos[i].ciudadOrigen %></td>
+            <td><%= vuelos[i].estadoOrigen %></td>
+            <td><%= vuelos[i].paisOrigen %></td>
+            <td><%= vuelos[i].ciudadDestino %></td>
+            <td><%= vuelos[i].estadoDestino %></td>
+            <td><%= vuelos[i].paisDestino %></td>
+            <td>
+              <a class="btn btn-outline-warning btn-sm" href="/vuelos/editV/<%= vuelos[i].idVuelo %>">Editar</a>
+              <a class="btn btn-outline-danger btn-sm" href="/vuelos/deleteV/<%= vuelos[i].idVuelo %>">Borrar</a>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+<%- include ../layouts/foot.ejs %>

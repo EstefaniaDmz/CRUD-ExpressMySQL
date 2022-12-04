@@ -1,0 +1,38 @@
+<%- include ../layouts/head.ejs %>
+<h1 style="text-align: center;">Formulario para agregar</h1>
+<br>
+<% if (locals.message) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error:</strong> <%= message %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+<form action="/usuarios/updateU/<%= row.idUsuario %>" method="post" class="form-label" style="margin-left: 5%; margin-right: 5%;">
+    <input type="hidden" name="idUsuario" value="<%= row.idUsuario %>">
+    <input type="hidden" name="pass" value="<%= row.clave %>">
+    <h5>Nombre</h5>
+    <input class="form-control" type="text" name="nombre" value="<%= row.nombre %>">
+    <br>
+    <h5>Apellido Paterno</h5>
+    <input class="form-control" type="text" name="apellidoPaterno" value="<%= row.apellidoPaterno %>">
+    <br>
+    <h5>Apellido Materno</h5>
+    <input class="form-control" type="text" name="apellidoMaterno" value="<%= row.apellidoMaterno %>">
+    <br>
+    <h5>Correo</h5>
+    <input class="form-control" type="email" name="correo" value="<%= row.correo %>">
+    <br>
+    <h5>Clave Anterior</h5>
+    <input class="form-control" type="password" name="clave">
+    <br>
+    <h5>Clave nueva</h5>
+    <input class="form-control" type="password" name="claveNva">
+    <br>
+    <h5>Repita clave nueva</h5>
+    <input class="form-control" type="password" name="claveNvaB">
+    <br>
+    <div class="d-grid gap-2">
+        <input class="btn btn-outline-primary" type="submit" value="Aceptar">
+    </div>
+</form>
+<%- include ../layouts/foot.ejs %>

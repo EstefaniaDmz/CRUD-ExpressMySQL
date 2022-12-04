@@ -1,0 +1,33 @@
+<%- include ../layouts/head.ejs %>
+<h1 style="text-align: center;">Formulario para agregar</h1>
+<br>
+<% if (locals.message) { %>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error:</strong> <%= message %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+<form action="/usuarios/U" method="post" class="form-label" style="margin-left: 5%; margin-right: 5%;">
+    <h5>Nombre</h5>
+    <input class="form-control" type="text" name="nombre">
+    <br>
+    <h5>Apellido Paterno</h5>
+    <input class="form-control" type="text" name="apellidoPaterno">
+    <br>
+    <h5>Apellido Materno</h5>
+    <input class="form-control" type="text" name="apellidoMaterno">
+    <br>
+    <h5>Correo</h5>
+    <input class="form-control" type="email" name="correo">
+    <br>
+    <h5>Clave</h5>
+    <input class="form-control" type="password" name="clave">
+    <br>
+    <h5>Repita clave</h5>
+    <input class="form-control" type="password" name="claveB">
+    <br>
+    <div class="d-grid gap-2">
+        <input class="btn btn-outline-primary" type="submit" value="Aceptar">
+    </div>
+</form>
+<%- include ../layouts/foot.ejs %>

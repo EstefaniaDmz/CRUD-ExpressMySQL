@@ -1,0 +1,48 @@
+<%- include ../layouts/head.ejs %>
+<h1 style="text-align: center;">Cliente   <a class="btn btn-outline-success btn-sm" href="/clientes/createC">Agregar</a></h1>
+    <div class="table-responsive" style="margin: 3%;">
+      <table class="table table-striped table-bordered" style="vertical-align: middle; text-align: center;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Teléfono</th>
+            <th>Calle</th>
+            <th>Colonia</th>
+            <th>CP</th>
+            <th>idHotel</th>
+            <th>Regimen Hotel</th>
+            <th>idSucursal</th>
+            <th>idVuelo</th>
+            <th>Clase Vuelo</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for( let i = 0; i < clientes.length; i++ ) { %>          
+          <tr>
+            <td><%= clientes[i].idCliente %></td>
+            <td><%= clientes[i].nombre %></td>
+            <td><%= clientes[i].apellidoPaterno %></td>
+            <td><%= clientes[i].apellidoMaterno %></td>
+            <td><%= clientes[i].telefono %></td>
+            <td><%= clientes[i].calle %></td>
+            <td><%= clientes[i].colonia %></td>
+            <td><%= clientes[i].cp %></td>
+            <td><%= clientes[i].idHotel %></td>
+            <td><%= clientes[i].regimenHotel %></td>
+            <td><%= clientes[i].idSucursal %></td>
+            <td><%= clientes[i].idVuelo %></td>
+            <td><%= clientes[i].claseVuelo %></td>
+            <td>
+              <a class="btn btn-outline-warning btn-sm" href="/clientes/editC/<%= clientes[i].idCliente %>">Editar</a>
+              <a class="btn btn-outline-danger btn-sm" href="/clientes/deleteC/<%= clientes[i].idCliente %>">Borrar</a>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+<%- include ../layouts/foot.ejs %>
